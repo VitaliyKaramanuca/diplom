@@ -212,3 +212,38 @@ body{
     margin-bottom: 10px;
     display: none;
 }
+
+.action__accordeon{
+    margin-bottom: 100px;
+}
+
+.about__hello{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+.about__inner{
+    padding: 0 200px;
+}
+
+.about__item{
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.about__item:nth-child(even){
+    flex-direction: row-reverse;
+}
+
+
+.about__text{
+    flex-basis: 600px;
+}
+
+.about__number{
+    font-size: 70px;
+    font-weight: bold;
+}
