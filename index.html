@@ -1,44 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Ресторан Eclipse</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.css">
 </head>
 
+
+
+
 <body>
-    <div class="wrapper">
+    <div class="wrapper_my">
         <header class="header">
             <div class="container">
                 <div class="header__inner">
-                    <a href="#" class="logo">
+                    <a href="index.html" class="logo">
                         <img src="images/logo.svg" alt="" class="logo__img">
                     </a>
                     <nav class="menu">
-                        <ul class="menu__items"></ul>
+                        <button class="menu_btn">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                        <ul class="menu__items">
+                        <li class="menu_close">
+                            <button class="menu_close-btn">
+                                <img src="images/close.png" alt="">
+                            </button>
+                        </li>
                         <li class="menu__item">
                             <a href="#" class="menu__link">Главная</a>
                         </li>
                         <li class="menu__item">
-                            <a href="#" class="menu__link">Меню</a>
+                            <a href="menu.html" class="menu__link">Меню</a>
                         </li>
                         <li class="menu__item">
-                            <a href="#" class="menu__link">Акции</a>
+                            <a href="#promotions" id="scrollToPromotions" class="menu__link">Акции</a>
                         </li>
                         <li class="menu__item">
-                            <a href="#" class="menu__link">О Нас</a>
+                            <a href="#about" id="scrollToAbout"  class="menu__link">О Нас</a>
                         </li>
-                        </ul>
+                        <li class="menu__item-icon" id="cart-icon" onclick="toggleCart()">
+                            <img src="images/cart_icon.png" alt="">
+                            <span id="cart-count" class="cart-count">0</span>
+                        </li>
+                    </ul>
                     </nav>
                     <nav class="header__contacts">
                         <img src="images/contacts__img-phone.svg" alt="" class="contacts__img-phone">
@@ -47,6 +64,28 @@
                 </div>
             </div>
         </header>
+
+
+
+
+
+
+        <div id="cart-sidebar" class="cart-sidebar">
+            <h2 class="main_basket">Корзина</h2>
+            <div id="cart-items"></div>
+            <div id="cart-total"></div>
+            <button class="basket basket_btn" onclick="proceedToCheckout()">Сделать заказ</button>
+            <button class="basket basket_btn" onclick="clearCart()">Очистить корзину</button>
+            <button class="basket basket_btn" onclick="closeCart()">Закрыть корзину</button>
+        </div>
+
+
+
+
+
+
+
+
         <main class="main">
             <div class="swiper">
                 <div class="swiper-wrapper">
@@ -103,74 +142,19 @@
                 </div>
             </div>
         </main>
-        <section class="popular__dishes">
-            <div class="container">
-                <h2 class="section__title">Популярные блюда</h2>
-                <div class="popular__dishes-inner">
-                    <div class="popular__dishes-item">
-                        <img src="images/karbonara.jpg" alt="" class="dishes__img">
-                        <h3 class="dishes__name">Карбонара</h3>
-                        <p class="dishes__price">109 руб.</p>
-                        <button class="basket">В корзину</button>
-                    </div>
-                    <div class="popular__dishes-item">
-                        <img src="images/califirnia.jpg" alt="" class="dishes__img">
-                        <h3 class="dishes__name">Калифорния</h3>
-                        <p class="dishes__price">85 руб.</p>
-                        <button class="basket">В корзину</button>
-                    </div>
-                    <div class="popular__dishes-item">
-                        <img src="images/pepperoni.jpg" alt="" class="dishes__img">
-                        <h3 class="dishes__name">Пепперони</h3>
-                        <p class="dishes__price">110 руб.</p>
-                        <button class="basket">В корзину</button>
-                    </div>
-                    <div class="popular__dishes-item">
-                        <img src="images/cezar.jpg" alt="" class="dishes__img">
-                        <h3 class="dishes__name">Цезарь</h3>
-                        <p class="dishes__price">70 руб.</p>
-                        <button class="basket">
-                            <p>В корзину</p>
-                        </button>
-                    </div>
-                    <div class="popular__dishes-item">
-                        <img src="images/burger.jpg" alt="" class="dishes__img">
-                        <h3 class="dishes__name">Говяжий</h3>
-                        <p class="dishes__price">110 руб.</p>
-                        <button class="basket">В корзину</button>
-                    </div>
-                    <div class="popular__dishes-item">
-                        <img src="images/limonade.jpg" alt="" class="dishes__img">
-                        <h3 class="dishes__name">Лимонад</h3>
-                        <p class="dishes__price">45 руб.</p>
-                        <button class="basket">В корзину</button>
-                    </div>
-                    <div class="popular__dishes-item">
-                        <img src="images/supreme.jpg" alt="" class="dishes__img">
-                        <h3 class="dishes__name">Суприм</h3>
-                        <p class="dishes__price">99 руб.</p>
-                        <button class="basket">В корзину</button>
-                    </div>
-                    <div class="popular__dishes-item">
-                        <img src="images/potato.jpg" alt="" class="dishes__img">
-                        <h3 class="dishes__name">Картошка фри</h3>
-                        <p class="dishes__price">52 руб.</p>
-                        <button class="basket">В корзину</button>
-                    </div>
-                    <div class="popular__dishes-item">
-                        <img src="images/burger-m.jpg" alt="" class="dishes__img">
-                        <h3 class="dishes__name">Мексиканский</h3>
-                        <p class="dishes__price">89 руб.</p>
-                        <button class="basket">В корзину</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="action__accordeon">
+
+
+
+
+
+
+
+
+        <section class="action__accordeon" id="promotions">
             <div class="container">
                 <h3 class="section__title">Наши Акции</h3>
                 <div class="accordeon__inner">
-                    <div class="accordeon__item">
+                    <div class="accordeon__item element-animation">
                         <div class="accordeon__triger">
                             <img src="images/accordeon-arrow.svg" alt="" class="accordeon__img">
                             <h4 class="accordeon__triger-title">Каждый второй бургер - в подарок</h4>
@@ -180,7 +164,7 @@
                             <p class="accordeon__text">При заказе одного бургера клиент получает второй бургер бесплатно.</p>
                         </div>
                     </div>
-                    <div class="accordeon__item">
+                    <div class="accordeon__item element-animation">
                         <div class="accordeon__triger">
                             <img src="images/accordeon-arrow.svg" alt="" class="accordeon__img">
                             <h4 class="accordeon__triger-title">Скидка на обеденное время</h4>
@@ -190,7 +174,7 @@
                             <p class="accordeon__text">Скидка 20% на все блюда с 12:00 до 15:00!</p>
                         </div>
                     </div>
-                    <div class="accordeon__item">
+                    <div class="accordeon__item element-animation">
                         <div class="accordeon__triger">
                             <img src="images/accordeon-arrow.svg" alt="" class="accordeon__img">
                             <h4 class="accordeon__triger-title">Бесплатный напиток к заказу</h4>
@@ -200,7 +184,7 @@
                             <p class="accordeon__text">При заказе от 2-х пицц Карбонара вы получаете бесплатный графин лимонада!</p>
                         </div>
                     </div>
-                    <div class="accordeon__item">
+                    <div class="accordeon__item element-animation">
                         <div class="accordeon__triger">
                             <img src="images/accordeon-arrow.svg" alt="" class="accordeon__img">
                             <h4 class="accordeon__triger-title">Скидка для именинников</h4>
@@ -210,7 +194,7 @@
                             <p class="accordeon__text">Специальная скидка и подарок именинникам! Скидка 20% к счёту и подарочный десерт "Шоколадная бомба"!</p>
                         </div>
                     </div>
-                    <div class="accordeon__item">
+                    <div class="accordeon__item element-animation">
                         <div class="accordeon__triger">
                             <img src="images/accordeon-arrow.svg" alt="" class="accordeon__img">
                             <h4 class="accordeon__triger-title">Акция выходного дня</h4>
@@ -220,7 +204,7 @@
                             <p class="accordeon__text">Скидка 15% на все блюда в воскресенье и Специальное предложение на brunch в субботу - 2 блюда по цене 1!</p>
                         </div>
                     </div>
-                    <div class="accordeon__item">
+                    <div class="accordeon__item element-animation">
                         <div class="accordeon__triger">
                             <img src="images/accordeon-arrow.svg" alt="" class="accordeon__img">
                             <h4 class="accordeon__triger-title">Скидка на коктейли</h4>
@@ -233,36 +217,176 @@
                 </div>
             </div>
         </section>
-        <section class="about__us">
+
+
+
+
+
+
+
+     <section class="popular__dishes">
             <div class="container">
-                <h3 class="section__title">О нас</h3>
-                <div class="about__inner">
-                    <p class="about__hello">Добро пожаловать в наш ресторан!</p>
-                    <div class="about__item">
-                        <p class="about__text">Мы рады приветствовать вас в уютном уголке гастрономического наслаждения, где каждый визит становится незабываемым кулинарным путешествием. Наш ресторан - это место, где встречаются утонченный вкус, изысканная атмосфера и внимательное обслуживание.</p>
-                        <p class="about__number">01</p>
+                <h2 class="section__title">Популярные блюда</h2>
+                <div class="popular__dishes-inner">
+                    <div class="popular__dishes-item food-item" data-name="Карбонара" data-price="109">
+                        <p class="weight">350 гр.</p>
+                        <img src="images/karbonara.jpg" alt="" class="dishes__img">
+                        <h3 class="dishes__name">Карбонара</h3>
+                        <p class="dishes__price">109 руб.</p>
+                        <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                        <button class="basket add-to-cart">В корзину</button>
                     </div>
-                    <div class="about__item">
-                        <p class="about__text">В основе нашей кухни лежит страсть к качественным продуктам и тщательный отбор ингредиентов. Наши шеф-повара воплощают в жизнь самые смелые кулинарные идеи, создавая блюда, которые удивляют и радуют даже самых изысканных гурманов.</p>
-                        <p class="about__number">02</p>
+                    <div class="popular__dishes-item food-item" data-name="Калифорния ролл" data-price="85">
+                        <p class="weight">350 гр.</p>
+                        <img src="images/califirnia.jpg" alt="" class="dishes__img">
+                        <h3 class="dishes__name">Калифорния ролл</h3>
+                        <p class="dishes__price">85 руб.</p>
+                        <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                        <button class="basket add-to-cart">В корзину</button>
                     </div>
-                    <div class="about__item">
-                        <p class="about__text">Наше меню предлагает богатый выбор блюд для каждого вкуса и предпочтения. От изысканных закусок до великолепных десертов - у нас найдется что-то для каждого гостя. Мы гордимся тем, что наши блюда не только удовлетворяют ваши вкусовые желания, но и поднимают настроение и заставляют вас возвращаться снова и снова.</p>
-                        <p class="about__number">03</p>
+                    <div class="popular__dishes-item food-item" data-name="Пепперони" data-price="85">
+                        <p class="weight">350 гр.</p>
+                        <img src="images/pepperoni.jpg" alt="" class="dishes__img">
+                        <h3 class="dishes__name">Пепперони</h3>
+                        <p class="dishes__price">85 руб.</p>
+                        <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                        <button class="basket add-to-cart">В корзину</button>
                     </div>
-                    <div class="about__item">
-                        <p class="about__text">Наша команда профессионалов старается сделать ваше посещение максимально приятным и комфортным. Мы стремимся к тому, чтобы каждый гость чувствовал себя особенным и получал внимание, которое заслуживает.</p>
-                        <p class="about__number">04</p>
+                    <div class="popular__dishes-item food-item element-animation" data-name="Цезарь" data-price="70">
+                        <p class="weight">350 гр.</p>
+                        <img src="images/cezar.jpg" alt="" class="dishes__img">
+                        <h3 class="dishes__name">Цезарь</h3>
+                        <p class="dishes__price">70 руб.</p>
+                        <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                        <button class="basket add-to-cart">В корзину</button>
                     </div>
-                    <div class="about__item">
-                        <p class="about__text">Мы приглашаем вас окунуться в мир изысканного вкуса и непринужденного общения. Посетите наш ресторан и откройте для себя новые гастрономические впечатления, которые оставят незабываемые воспоминания на всю жизнь.</p>
-                        <p class="about__number">05</p>
+                    <div class="popular__dishes-item food-item element-animation" data-name="Говяжий" data-price="110">
+                        <p class="weight">350 гр.</p>
+                        <img src="images/burger.jpg" alt="" class="dishes__img">
+                        <h3 class="dishes__name">Говяжий</h3>
+                        <p class="dishes__price">110 руб.</p>
+                        <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                        <button class="basket add-to-cart">В корзину</button>
                     </div>
-                    <p class="about__hello">Добро пожаловать в наш ресторан - место, где каждый гость - это наша особенность, а каждое блюдо - это наше искусство.</p>
+                    <div class="popular__dishes-item food-item element-animation" data-name="Лимонад" data-price="99">
+                        <p class="weight">350 гр.</p>
+                        <img src="images/limonade.jpg" alt="" class="dishes__img">
+                        <h3 class="dishes__name">Лимонад</h3>
+                        <p class="dishes__price">99 руб.</p>
+                        <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                        <button class="basket add-to-cart">В корзину</button>
+                    </div>
+                    <div class="popular__dishes-item food-item element-animation" data-name="Суприм" data-price="99">
+                        <p class="weight">350 гр.</p>
+                        <img src="images/supreme.jpg" alt="" class="dishes__img">
+                        <h3 class="dishes__name">Суприм</h3>
+                        <p class="dishes__price">99 руб.</p>
+                        <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                        <button class="basket add-to-cart">В корзину</button>
+                    </div>
+                    <div class="popular__dishes-item food-item element-animation" data-name="Ролл с тунцом и авокадо" data-price="52">
+                        <p class="weight">350 гр.</p>
+                        <img src="images/Roll_with_tuna_and_avocado.jpg" alt="" class="dishes__img">
+                        <h3 class="dishes__name">Ролл с тунцом и авокадо</h3>
+                        <p class="dishes__price">52 руб.</p>
+                        <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                        <button class="basket add-to-cart">В корзину</button>
+                    </div>
+                    <div class="popular__dishes-item food-item element-animation" data-name="Мексиканский" data-price="89">
+                        <p class="weight">350 гр.</p>
+                        <img src="images/burger-m.jpg" alt="" class="dishes__img">
+                        <h3 class="dishes__name">Мексиканский</h3>
+                        <p class="dishes__price">89 руб.</p>
+                        <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                        <button class="basket add-to-cart">В корзину</button>
+                    </div>
                 </div>
             </div>
         </section>
+
+
+
+
+        <section class="about__us" id="about">
+            <div class="container">
+                <h3 class="section__title element-animation">О нас</h3>
+                <div class="about__inner">
+                    <p class="about__hello element-animation element-animation">Добро пожаловать в наш ресторан!</p>
+                    <div class="about__item element-animation">
+                        <p class="about__text">Мы рады приветствовать вас в уютном уголке гастрономического наслаждения, где каждый визит становится незабываемым кулинарным путешествием. Наш ресторан - это место, где встречаются утонченный вкус, изысканная атмосфера и внимательное обслуживание.</p>
+                        <p class="about__number">01</p>
+                    </div>
+                    <div class="about__item element-animation">
+                        <p class="about__text">В основе нашей кухни лежит страсть к качественным продуктам и тщательный отбор ингредиентов. Наши шеф-повара воплощают в жизнь самые смелые кулинарные идеи, создавая блюда, которые удивляют и радуют даже самых изысканных гурманов.</p>
+                        <p class="about__number">02</p>
+                    </div>
+                    <div class="about__item element-animation">
+                        <p class="about__text">Наше меню предлагает богатый выбор блюд для каждого вкуса и предпочтения. От изысканных закусок до великолепных десертов - у нас найдется что-то для каждого гостя. Мы гордимся тем, что наши блюда не только удовлетворяют ваши вкусовые желания, но и поднимают настроение и заставляют вас возвращаться снова и снова.</p>
+                        <p class="about__number">03</p>
+                    </div>
+                    <div class="about__item element-animation">
+                        <p class="about__text">Наша команда профессионалов старается сделать ваше посещение максимально приятным и комфортным. Мы стремимся к тому, чтобы каждый гость чувствовал себя особенным и получал внимание, которое заслуживает.</p>
+                        <p class="about__number">04</p>
+                    </div>
+                    <div class="about__item element-animation">
+                        <p class="about__text">Мы приглашаем вас окунуться в мир изысканного вкуса и непринужденного общения. Посетите наш ресторан и откройте для себя новые гастрономические впечатления, которые оставят незабываемые воспоминания на всю жизнь.</p>
+                        <p class="about__number">05</p>
+                    </div>
+                    <p class="about__hello element-animation">Добро пожаловать в наш ресторан - место, где каждый гость - это наша особенность, а каждое блюдо - это наше искусство.</p>
+                </div>
+            </div>
+        </section>
+</div> 
+ 
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer__inner">
+            <div class="logo_inner">
+                <a href="index.html" class="logo">
+                    <img src="images/logo.svg" alt="" class="logo__img">
+                </a>
+                <h1 class="footer_title">Eclipse - вкус, который затмевает все остальное</h1>
+            </div>
+            <nav class="footer_social">
+                <ul class="social_item">
+                    <li class="social__link">
+                        <a href="https://vk.com/iunnecessaryi">
+                            <img src="images/vk.png" alt="" class="footer_img">
+                        </a>
+                    </li>
+                    <li class="social__link">
+                        <a href="https://t.me/lStay_With_Mel">
+                            <img src="images/telegram.png" alt="" class="footer_img">
+                        </a>
+                    </li>
+                    <li class="social__link">
+                        <a href="https://www.instagram.com/vitalik_karamanuca/?igsh=MTVlZ2c3b2ZkaWRudw%3D%3D">
+                            <img src="images/instagram.png" alt="" class="footer_img">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="create">
+                <p class="created_by">
+                    Сайт разработал студент<br>
+                    Карамануца Виталий
+                </p>
+            </div>
+            <nav class="header__contacts">
+                <img src="images/contacts__img-phone.svg" alt="" class="phone__img-footer">
+                <a href="tel:+37377995875" class="contact__phone">+373 779 95 875</a>
+            </nav>
+            <p class="work_time">
+                График работы:<br>
+                ПН-ПТ: 9:00-21:00<br>
+                СБ-ВС: 10:00-22:00
+            </p>
+        </div>
     </div>
+</footer>
+    
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/main.js"></script>
 </body>

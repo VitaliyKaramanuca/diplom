@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Меню Eclipse</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="wrapper_my">
+        <header class="header">
+            <div class="container">
+                <div class="header__inner">
+                    <a href="index.html" class="logo">
+                        <img src="images/logo.svg" alt="" class="logo__img">
+                    </a>
+                    <nav class="menu">
+                        <button class="menu_btn">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                        <ul class="menu__items">
+                        <li class="menu_close">
+                            <button class="menu_close-btn">
+                                <img src="images/close.png" alt="">
+                            </button>
+                        </li>
+                        <li class="menu__item">
+                            <a href="index.html" class="menu__link">Главная</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="#" class="menu__link">Меню</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="index.html#promotions" id="scrollToPromotions" class="menu__link">Акции</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="index.html#about" id="scrollToAbout"  class="menu__link">О Нас</a>
+                        </li>
+                        <li class="menu__item-icon" id="cart-icon" onclick="toggleCart()">
+                            <img src="images/cart_icon.png" alt="">
+                            <span id="cart-count" class="cart-count">0</span>
+                        </li>
+                    </ul>
+                    </nav>
+                    <nav class="header__contacts">
+                        <img src="images/contacts__img-phone.svg" alt="" class="contacts__img-phone">
+                        <a href="tel:+37377995875" class="contact__phone">+373 779 95 875</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+         <div id="cart-sidebar" class="cart-sidebar">
+            <h2 class="main_basket">Корзина</h2>
+            <div id="cart-items"></div>
+            <div id="cart-total"></div>
+            <button class="basket basket_btn" onclick="proceedToCheckout()">Сделать заказ</button>
+            <button class="basket basket_btn" onclick="clearCart()">Очистить корзину</button>
+            <button class="basket basket_btn" onclick="closeCart()">Закрыть корзину</button>
+        </div>
+
+
+
+
+    
+        <section class="menu__choice">
+            <div class="container">
+                <div class="menu__choice-inner">
+                    <ul class="menu__choice-nav" id="menu__choice">
+                        <li class="menu__choice-item" onclick="showMenu('appetizers')">
+                            <img src="images/snacks.png" alt="" class="choice_img">
+                            <p class="choice__text">Закуски</p>
+                        </li>
+                        <li class="menu__choice-item" onclick="showMenu('salads')">
+                            <img src="images/salads.png" alt="" class="choice_img">
+                            <p class="choice__text">Салаты</p>
+                        </li>
+                        <li class="menu__choice-item" onclick="showMenu('soups')">
+                            <img src="images/soups.png" alt="" class="choice_img">
+                            <p class="choice__text">Супы</p>
+                        </li>
+                        <li class="menu__choice-item" onclick="showMenu('main-dishes')">
+                            <img src="images/Main_dishes.png" alt="" class="choice_img">
+                            <p class="choice__text">Основные блюда</p>
+                        </li>
+                        <li class="menu__choice-item" onclick="showMenu('rolls')">
+                            <img src="images/Rolls.png" alt="" class="choice_img">
+                            <p class="choice__text menu__select">Роллы</p>
+                        </li>
+                        <li class="menu__choice-item" onclick="showMenu('pizza')">
+                            <img src="images/pizza.png" alt="" class="choice_img">
+                            <p class="choice__text">Пицца</p>
+                        </li>
+                        <li class="menu__choice-item" onclick="showMenu('pasta')">
+                            <img src="images/paste.png" alt="" class="choice_img">
+                            <p class="choice__text">Паста</p>
+                        </li>
+                        <li class="menu__choice-item" onclick="showMenu('burgers')">
+                            <img src="images/burger.png" alt="" class="choice_img">
+                            <p class="choice__text">Бургеры</p>
+                        </li>
+                        <li class="menu__choice-item" onclick="showMenu('desserts')">
+                            <img src="images/Dessert.png" alt="" class="choice_img">
+                            <p class="choice__text">Десерты</p>
+                        </li>
+                        <li class="menu__choice-item" onclick="showMenu('drinks')">
+                            <img src="images/beverages.png" alt="" class="choice_img">
+                            <p class="choice__text">Напитки</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="title__choice-menu">
+                    <h3 class="title__choice-text" id="selected__menu__choice-item">Основные блюда</h3>
+                </div>
+            </div>
+        </section>
+        <section class="main__menu">
+            <div class="container">
+                <div id="main-dishes" class="food-section active">
+                    <div class="main__menu-inner">
+                        <div class="popular__dishes-item food-item" data-name="Стейк Рибай" data-price="109">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/ribai.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Стейк Рибай</h3>
+                            <p class="dishes__price">109 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Свиные ребрышки в барбекю-соусе" data-price="85">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Pork_ribs_in_BBQ_sauce.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Свиные ребрышки в барбекю-соусе</h3>
+                            <p class="dishes__price">85 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Куриное филе в сливочном соусе с грибами" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Chicken_fillet_in_creamy_sauce_with_mushrooms.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Куриное филе в сливочном соусе с грибами</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Лосось на гриле" data-price="70">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Grilled_salmon.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Лосось на гриле</h3>
+                            <p class="dishes__price">70 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Треска в кляре" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Cod_in_batter.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Треска в кляре</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Сибас с овощами" data-price="45">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Seabass_with_vegetables.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Сибас с овощами</h3>
+                            <p class="dishes__price">45 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Утка по-пекински" data-price="99">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Peking_duck.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Утка по-пекински</h3>
+                            <p class="dishes__price">99 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Индейка в медово-горчичном соусе" data-price="52">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Turkey_in_honey_mustard_sauce.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Индейка в медово-горчичном соусе</h3>
+                            <p class="dishes__price">52 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Цыпленок табака" data-price="89">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Chicken_tabaka.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Цыпленок табака</h3>
+                            <p class="dishes__price">89 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Рататуй" data-price="109">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Ratatouille.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Рататуй</h3>
+                            <p class="dishes__price">109 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Фалафель с хумусом" data-price="85">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Falafel_with_hummus.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Фалафель с хумусом</h3>
+                            <p class="dishes__price">85 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Лазанья с овощами" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Lasagna_with_vegetables.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Лазанья с овощами</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Паста с морепродуктами" data-price="70">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Pasta_with_seafood.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Паста с морепродуктами</h3>
+                            <p class="dishes__price">70 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Паэлья с морепродуктами" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Paella_with_seafood.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Паэлья с морепродуктами</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Креветки в чесночном соусе" data-price="45">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Shrimp_in_garlic_sauce.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Креветки в чесночном соусе</h3>
+                            <p class="dishes__price">45 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Чили кон карне" data-price="99">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Chili_con_carne.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Чили кон карне</h3>
+                            <p class="dishes__price">99 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Том Ям" data-price="52">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Tom_Yum.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Том Ям</h3>
+                            <p class="dishes__price">52 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Шашлык" data-price="89">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Shashlik.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Шашлык</h3>
+                            <p class="dishes__price">89 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+                    
+                
+
+
+
+
+
+
+
+
+
+
+
+                <div id="soups" class="food-section">
+                    <div class="main__menu-inner">
+                        <div class="popular__dishes-item food-item" data-name="Борщ" data-price="109">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Borsch.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Борщ</h3>
+                            <p class="dishes__price">109 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Щи" data-price="85">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Cabbage_soup.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Щи</h3>
+                            <p class="dishes__price">85 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Солянка" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Solyanka.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Солянка</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Французский луковый суп" data-price="70">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/French_onion_soup.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Французский луковый суп</h3>
+                            <p class="dishes__price">70 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Минестроне" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Minestrone.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Минестроне</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Гаспачо" data-price="45">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Gazpacho.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Гаспачо</h3>
+                            <p class="dishes__price">45 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Мисо суп" data-price="99">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Miso_soup.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Мисо суп</h3>
+                            <p class="dishes__price">99 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Фо Бо" data-price="52">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Pho_Bo.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Фо Бо</h3>
+                            <p class="dishes__price">52 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Куриный суп с лапшой" data-price="89">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Chicken_noodle_soup.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Куриный суп с лапшой</h3>
+                            <p class="dishes__price">89 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Грибной крем-суп" data-price="109">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Mushroom_cream_soup.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Грибной крем-суп</h3>
+                            <p class="dishes__price">109 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Суп-пюре из тыквы" data-price="85">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Pumpkin_soup.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Суп-пюре из тыквы</h3>
+                            <p class="dishes__price">85 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Уха" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Ear.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Уха</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Буйабес" data-price="70">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Bouillabaisse.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Буйабес</h3>
+                            <p class="dishes__price">70 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Крем-суп из мидий" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Creamy_mussel_soup.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Крем-суп из мидий</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Суп из чечевицы" data-price="45">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Lentil_soup.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Суп из чечевицы</h3>
+                            <p class="dishes__price">45 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Крем-суп из брокколи" data-price="99">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Cream_of_broccoli_soup.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Крем-суп из брокколи</h3>
+                            <p class="dishes__price">99 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Суп из помидоров" data-price="52">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Tomato_soup.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Суп из помидоров</h3>
+                            <p class="dishes__price">52 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                               
+                <div id="salads" class="food-section">
+                    <div class="main__menu-inner">
+                        <div class="popular__dishes-item food-item" data-name="Цезарь" data-price="70">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/cezar.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Цезарь</h3>
+                            <p class="dishes__price">70 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Греческий салат" data-price="85">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Greek_salad.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Греческий салат</h3>
+                            <p class="dishes__price">85 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Нисуаз" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Niçoise.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Нисуаз</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Салат из киноа" data-price="70">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Quinoa_salad.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Салат из киноа</h3>
+                            <p class="dishes__price">70 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Салат Табуле" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Tabbouleh_Salad.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Салат Табуле</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Салат из печёных овощей" data-price="45">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Baked_vegetable_salad.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Салат из печёных овощей</h3>
+                            <p class="dishes__price">45 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Салат с утиной грудкой" data-price="99">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Duck_breast_salad.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Салат с утиной грудкой</h3>
+                            <p class="dishes__price">99 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Салат с курицей и авокадо" data-price="52">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Chicken_and_Avocado_Salad.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Салат с курицей и авокадо</h3>
+                            <p class="dishes__price">52 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Салат с лососем" data-price="89">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Salmon_salad.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Салат с лососем</h3>
+                            <p class="dishes__price">89 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Салат Капрезе" data-price="109">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Caprese_salad.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Салат Капрезе</h3>
+                            <p class="dishes__price">109 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Арбузный салат с фетой" data-price="85">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Watermelon_salad_with_feta.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Арбузный салат с фетой</h3>
+                            <p class="dishes__price">85 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Салат с манго и креветками" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Salad_with_mango_and_shrimp.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Салат с манго и креветками</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Салат с тёплой козьей сыром" data-price="70">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Salad_with_warm_goat_cheese.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Салат с тёплой козьей сыром</h3>
+                            <p class="dishes__price">70 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Салат с тёплым картофелем" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Warm_potato_salad.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Салат с тёплым картофелем</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Салат с тёплыми грибами" data-price="45">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Salad_with_warm_mushrooms.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Салат с тёплыми грибами</h3>
+                            <p class="dishes__price">45 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Салат с морепродуктами" data-price="99">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Seafood_salad.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Салат с морепродуктами</h3>
+                            <p class="dishes__price">99 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Тайский салат с говядиной" data-price="52">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Thai_beef_salad.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Тайский салат с говядиной</h3>
+                            <p class="dishes__price">52 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Салат из авокадо и грейпфрута" data-price="52">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Avocado_and_grapefruit_salad.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Салат из авокадо и грейпфрута</h3>
+                            <p class="dishes__price">52 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                    </div>
+                </div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div id="appetizers" class="food-section">
+                    <div class="main__menu-inner">
+                        <div class="popular__dishes-item food-item" data-name="Антипасти" data-price="70">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Antipasti.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Антипасти</h3>
+                            <p class="dishes__price">70 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Тар-тар из тунца" data-price="85">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Tuna_tartare.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Тар-тар из тунца</h3>
+                            <p class="dishes__price">85 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Карпаччо из говядины" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Beef_carpaccio.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Карпаччо из говядины</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Креветки в темпуре" data-price="70">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Shrimp_tempura.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Креветки в темпуре</h3>
+                            <p class="dishes__price">70 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Брускетта" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Bruschetta.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Брускетта</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Мидии в белом вине" data-price="45">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Mussels_in_white_wine.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Мидии в белом вине</h3>
+                            <p class="dishes__price">45 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Хумус с овощами" data-price="99">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Hummus_with_vegetables.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Хумус с овощами</h3>
+                            <p class="dishes__price">99 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Фалафель" data-price="52">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Falafel.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Фалафель</h3>
+                            <p class="dishes__price">52 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Мясные мини-рулетики" data-price="89">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Mini_meat_rolls.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Мясные мини-рулетики</h3>
+                            <p class="dishes__price">89 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Тапас с хамоном" data-price="109">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Tapas_with_jamon.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Тапас с хамоном</h3>
+                            <p class="dishes__price">109 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Лосось гравлакс" data-price="85">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Salmon_gravlax.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Лосось гравлакс</h3>
+                            <p class="dishes__price">85 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Крабовые кексы" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Crab_Cakes.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Крабовые кексы</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Севиче" data-price="70">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Ceviche.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Севиче</h3>
+                            <p class="dishes__price">70 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Луковые кольца" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Onion_rings.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Луковые кольца</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Куриные крылышки" data-price="45">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Chicken_wings.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Куриные крылышки</h3>
+                            <p class="dishes__price">45 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Начос" data-price="99">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Nachos.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Начос</h3>
+                            <p class="dishes__price">99 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                    </div>
+                </div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+               <div id="drinks" class="food-section">
+                    <div class="main__menu-inner">
+                        <div class="popular__dishes-item  food-item" data-name="Белое вино" data-price="70">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/White_wine.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Белое вино</h3>
+                            <p class="dishes__price">70 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Красное вино" data-price="85">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Red_wine.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Красное вино</h3>
+                            <p class="dishes__price">85 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Розовое вино" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Pink_wine.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Розовое вино</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Светлое пиво" data-price="70">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Light_beer.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Светлое пиво</h3>
+                            <p class="dishes__price">70 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Тёмное пиво" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Dark_beer.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Тёмное пиво</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Пина Колада" data-price="45">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Pina_colada.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Пина Колада</h3>
+                            <p class="dishes__price">45 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Джин Тоник" data-price="99">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/gin_and_tonic.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Джин Тоник</h3>
+                            <p class="dishes__price">99 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Дайкири" data-price="52">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Daiquiri.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Дайкири</h3>
+                            <p class="dishes__price">52 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Глинтвейн" data-price="89">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Mulled_wine.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Глинтвейн</h3>
+                            <p class="dishes__price">89 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Горячий сидр" data-price="109">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Hot_cider.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Горячий сидр</h3>
+                            <p class="dishes__price">109 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Какао и горячий шоколад" data-price="85">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Cocoa_and_hot_chocolate.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Какао и горячий шоколад</h3>
+                            <p class="dishes__price">85 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Молочный коктель с клубникой" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/milkshake_with_strawberries.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Молочный коктель с клубникой</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Клубничный лимонад" data-price="70">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Strawberry_lemonade.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Клубничный лимонад</h3>
+                            <p class="dishes__price">70 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Малиновый лимонад" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Raspberry_lemonade.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Малиновый лимонад</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Апельсиновый лимонад" data-price="45">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Orange_lemonade.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Апельсиновый лимонад</h3>
+                            <p class="dishes__price">45 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Лимонад" data-price="99">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/limonade.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Лимонад</h3>
+                            <p class="dishes__price">99 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Молочный коктель с бананом" data-price="70">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Milkshake_with_banana.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Молочный коктель с бананом</h3>
+                            <p class="dishes__price">70 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Молочный коктель с ванилью" data-price="45">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Milkshake_with_vanilla.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Молочный коктель с ванилью</h3>
+                            <p class="dishes__price">45 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Апельсиновый сок" data-price="99">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Orange_juice.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Апельсиновый сок</h3>
+                            <p class="dishes__price">99 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Молочный коктель с киви" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Milkshake_with_kiwi.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Молочный коктель с киви</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Яблочный сок" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Apple_juice.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Яблочный сок</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Грейпфрутовый сок" data-price="70">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Grapefruit_juice.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Грейпфрутовый сок</h3>
+                            <p class="dishes__price">70 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Ананасовый сок" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Pineapple_juice.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Ананасовый сок</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Персиковый сок" data-price="45">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Peach_juice.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Персиковый сок</h3>
+                            <p class="dishes__price">45 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Сок из граната" data-price="99">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Pomegranate_juice.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Сок из граната</h3>
+                            <p class="dishes__price">99 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                    </div> 
+                </div> 
+
+
+
+
+
+
+
+
+
+                <div id="desserts" class="food-section">
+                    <div class="main__menu-inner">
+                        <div class="popular__dishes-item food-item" data-name="Тирамису" data-price="70">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Tiramisu.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Тирамису</h3>
+                            <p class="dishes__price">70 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Шоколадный фондан" data-price="85">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Chocolate_fondant.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Шоколадный фондан</h3>
+                            <p class="dishes__price">85 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Крем-брюле" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Creme_brulee.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Крем-брюле</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Чизкейк Нью-Йорк" data-price="70">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Cheesecake_New_York.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Чизкейк Нью-Йорк</h3>
+                            <p class="dishes__price">70 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Панна котта" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Panna_cotta.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Панна котта</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Мороженое ассорти" data-price="45">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Ice_cream_assorted.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Мороженое ассорти</h3>
+                            <p class="dishes__price">45 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Лимонный пирог" data-price="99">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Lemon_pie.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Лимонный пирог</h3>
+                            <p class="dishes__price">99 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Профитроли" data-price="52">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Profiteroles.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Профитроли</h3>
+                            <p class="dishes__price">52 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Брауни" data-price="89">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Brownie.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Брауни</h3>
+                            <p class="dishes__price">89 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Эклеры" data-price="109">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Eclairs.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Эклеры</h3>
+                            <p class="dishes__price">109 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Павлова" data-price="85">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Pavlova.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Павлова</h3>
+                            <p class="dishes__price">85 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Аппл пай" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Apple_Pie.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Аппл пай</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                    </div>
+                </div>  
+
+
+
+
+
+
+                <div id="pizza" class="food-section">
+                    <div class="main__menu-inner">
+                        <div class="popular__dishes-item food-item" data-name="Маргарита" data-price="70">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Margarita.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Маргарита</h3>
+                            <p class="dishes__price">70 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Пепперони" data-price="85">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/pepperoni.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Пепперони</h3>
+                            <p class="dishes__price">85 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Капричоза" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Capricciosa.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Капричоза</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Четыре сыра" data-price="70">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Four_cheeses.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Четыре сыра</h3>
+                            <p class="dishes__price">70 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Гавайская" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Hawaiian.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Гавайская</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Диабло" data-price="45">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Diablo.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Диабло</h3>
+                            <p class="dishes__price">45 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Мясная (Мит Ловерс)" data-price="99">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Meat.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Мясная (Мит Ловерс)</h3>
+                            <p class="dishes__price">99 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Барбекю" data-price="52">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/B-B-Q.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Барбекю</h3>
+                            <p class="dishes__price">52 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Пицца с прошутто" data-price="89">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Pizza_with_prosciutto.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Пицца с прошутто</h3>
+                            <p class="dishes__price">89 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Пицца с грибами" data-price="109">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Pizza_with_mushrooms.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Пицца с грибами</h3>
+                            <p class="dishes__price">109 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Пицца с четырьмя видами овощей" data-price="85">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Pizza_with_four_types_of_vegetables.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Пицца с четырьмя видами овощей</h3>
+                            <p class="dishes__price">85 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Суприм" data-price="99">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/supreme.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Суприм</h3>
+                            <p class="dishes__price">99 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Карбонара" data-price="109">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/karbonara.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Карбонара</h3>
+                            <p class="dishes__price">109 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                    </div>
+                </div> 
+
+
+
+
+
+
+
+
+
+
+
+                 <div id="rolls" class="food-section">
+                    <div class="main__menu-inner">
+                        <div class="popular__dishes-item food-item" data-name="Калифорния ролл" data-price="85">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/califirnia.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Калифорния ролл</h3>
+                            <p class="dishes__price">85 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Филадельфия ролл" data-price="85">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Philadelphia_roll.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Филадельфия ролл</h3>
+                            <p class="dishes__price">85 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Спайси тунец ролл" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Spicy_tuna_roll.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Спайси тунец ролл</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Дракон ролл" data-price="70">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Dragon_roll.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Дракон ролл</h3>
+                            <p class="dishes__price">70 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Унаги ролл" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Unagi_roll.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Унаги ролл</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Темпура ролл с креветкой" data-price="45">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Tempura_roll_with_shrimp.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Темпура ролл с креветкой</h3>
+                            <p class="dishes__price">45 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Темпура ролл с овощами" data-price="99">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Tempura_roll_with_vegetables.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Темпура ролл с овощами</h3>
+                            <p class="dishes__price">99 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Ролл с тунцом и авокадо" data-price="52">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Roll_with_tuna_and_avocado.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Ролл с тунцом и авокадо</h3>
+                            <p class="dishes__price">52 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Ролл с лососем и манго" data-price="89">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Roll_with_salmon_and_mango.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Ролл с лососем и манго</h3>
+                            <p class="dishes__price">89 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Канада ролл" data-price="109">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Canada_roll.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Канада ролл</h3>
+                            <p class="dishes__price">109 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Ролл с креветкой и манго" data-price="85">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Roll_with_shrimp_and_mango.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Ролл с креветкой и манго</h3>
+                            <p class="dishes__price">85 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Ролл с ананасом и курицей" data-price="99">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Roll_with_pineapple_and_chicken.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Ролл с ананасом и курицей</h3>
+                            <p class="dishes__price">99 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Ролл с икрой тобико" data-price="109">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Roll_with_tobiko_caviar.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Ролл с икрой тобико</h3>
+                            <p class="dishes__price">109 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Ролл Снежный краб" data-price="109">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Roll_Snow_Crab.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Ролл "Снежный краб"</h3>
+                            <p class="dishes__price">109 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                    </div>
+                </div> 
+
+
+
+
+
+
+
+
+                <div id="pasta" class="food-section">
+                    <div class="main__menu-inner">
+                        <div class="popular__dishes-item food-item" data-name="Спагетти Карбонара" data-price="85">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Spaghetti_Carbonara.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Спагетти Карбонара</h3>
+                            <p class="dishes__price">85 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Фетучини Альфредо" data-price="85">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Fettuccine_Alfredo.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Фетучини Альфредо</h3>
+                            <p class="dishes__price">85 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Паста Болоньезе" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Pasta_Bolognese.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Паста Болоньезе</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Лазанья" data-price="70">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Lasagna.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Лазанья</h3>
+                            <p class="dishes__price">70 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Паста Песто" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Pesto_Pasta.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Паста Песто</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Лингвини с морепродуктами" data-price="45">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Linguine_with_seafood.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Лингвини с морепродуктами</h3>
+                            <p class="dishes__price">45 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Спагетти Алле Вонголе" data-price="99">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Spaghetti_Alle_Vongole.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Спагетти Алле Вонголе</h3>
+                            <p class="dishes__price">99 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Паста с грибами" data-price="52">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Pasta_with_mushrooms.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Паста с грибами</h3>
+                            <p class="dishes__price">52 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Паста Примавера" data-price="89">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Pasta_Primavera.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Паста Примавера</h3>
+                            <p class="dishes__price">89 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Паста Арабиата" data-price="109">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Pasta_Arabiata.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Паста Арабиата</h3>
+                            <p class="dishes__price">109 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Паста с авокадо" data-price="85">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Avocado_pasta.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Паста с авокадо</h3>
+                            <p class="dishes__price">85 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                    </div>
+                </div> 
+
+
+
+
+                <div id="burgers" class="food-section">
+                    <div class="main__menu-inner">
+                        <div class="popular__dishes-item food-item" data-name="Говяжий" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/burger.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Говяжий</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Мексиканский" data-price="89">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/burger-m.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Мексиканский</h3>
+                            <p class="dishes__price">89 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Классический чизбургер" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Classic_cheeseburger.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Классический чизбургер</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Бекон чизбургер" data-price="70">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Bacon_cheeseburger.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Бекон чизбургер</h3>
+                            <p class="dishes__price">70 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Гамбургер" data-price="110">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Hamburger.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Гамбургер</h3>
+                            <p class="dishes__price">110 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Бургер с трюфельным маслом" data-price="45">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Burger_with_truffle_oil.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Бургер с трюфельным маслом</h3>
+                            <p class="dishes__price">45 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Бургер с голубым сыром" data-price="99">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Blue_cheese_burger.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Бургер с голубым сыром</h3>
+                            <p class="dishes__price">99 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Бургер с уткой" data-price="52">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Duck_burger.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Бургер с уткой</h3>
+                            <p class="dishes__price">52 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Бургер с грибами портобелло" data-price="89">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Portobello_mushroom_burger.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Бургер с грибами портобелло</h3>
+                            <p class="dishes__price">89 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Куриный бургер" data-price="109">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Chicken_burger.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Куриный бургер</h3>
+                            <p class="dishes__price">109 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Бургер с индейкой" data-price="85">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Turkey_burger.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Бургер с индейкой</h3>
+                            <p class="dishes__price">85 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                        <div class="popular__dishes-item food-item" data-name="Куриный бургер в панировке" data-price="85">
+                            <p class="weight">350 гр.</p>
+                            <img src="images/Breaded_chicken_burger.jpg" alt="" class="dishes__img">
+                            <h3 class="dishes__name">Куриный бургер в панировке</h3>
+                            <p class="dishes__price">85 руб.</p>
+                            <p class="ingridient">Сочная говядина, приготовленная до желаемой степени прожарки, с гарниром из овощей или картофельным пюре.</p>
+                            <button class="basket add-to-cart">В корзину</button>
+                        </div>
+                    </div>
+            </div>
+        </section>
+
+
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__inner">
+                    <div class="logo_inner">
+                        <a href="index.html" class="logo">
+                            <img src="images/logo.svg" alt="" class="logo__img">
+                        </a>
+                        <h1 class="footer_title">Eclipse - вкус, который затмевает все остальное</h1>
+                    </div>
+                    <nav class="footer_social">
+                        <ul class="social_item">
+                            <li class="social__link">
+                                <a href="https://vk.com/iunnecessaryi">
+                                    <img src="images/vk.png" alt="" class="footer_img">
+                                </a>
+                            </li>
+                            <li class="social__link">
+                                <a href="https://t.me/lStay_With_Mel">
+                                    <img src="images/telegram.png" alt="" class="footer_img">
+                                </a>
+                            </li>
+                            <li class="social__link">
+                                <a href="https://www.instagram.com/vitalik_karamanuca/?igsh=MTVlZ2c3b2ZkaWRudw%3D%3D">
+                                    <img src="images/instagram.png" alt="" class="footer_img">
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="create">
+                        <p class="created_by">
+                            Сайт разработал студент<br>
+                            Карамануца Виталий
+                        </p>
+                    </div>
+                    <nav class="header__contacts">
+                        <img src="images/contacts__img-phone.svg" alt="" class="phone__img-footer">
+                        <a href="tel:+37377995875" class="contact__phone">+373 779 95 875</a>
+                    </nav>
+                    <p class="work_time">
+                        График работы:<br>
+                        ПН-ПТ: 9:00-21:00<br>
+                        СБ-ВС: 10:00-22:00
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div> 
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

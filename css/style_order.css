@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+    outline: 0;
+    font-family: "Lora", serif;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+img {
+    max-width: 100%;
+}
+body {
+    font-family: "Lora", serif;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0d1117;
+}
+
+.make_order{
+    padding: 2rem 9%;
+}
+
+.form_title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: calc(25px + (60 - 25) * ((100vw - 300px) / (1600 - 300)));
+    font-weight: normal;
+    color: #f2f2f2;
+}
+
+.make_order .row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.make_order .row .img {
+    flex: 1  1 40rem;
+}
+
+.make_order .row form {
+    flex: 1  1 40rem;
+}
+
+.make_order .row form .box {
+    width: 100%;
+    margin: 1rem 0rem 2rem;
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+}
+
+.make_order .row form span {
+    color: #f2f2f2;
+    font-size: calc(12px + (16 - 12) * ((100vw - 300px) / (1600 - 300)));
+}
+
+#order-total, .info_order {
+    color: #f2f2f2;
+    font-size: calc(12px + (16 - 12) * ((100vw - 300px) / (1600 - 300)));
+    width: 100%;
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+    font-weight: normal;
+}
+textarea {
+    font-family: "Lora", serif;
+    margin: 1rem 0rem 2rem;
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+    font-weight: normal;
+    font-size: calc(12px + (18 - 12) * ((100vw - 300px) / (1600 - 300)));
+    line-height: 1.5;
+}
+
+.btn {
+    padding: 1rem 3rem;
+    border-radius: 1.5rem;
+    box-shadow: 0rem .5rem 1rem rgb(0, 0, 0, .7);
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 20px;
+}
+
+.btn:hover {
+    background-color: #0d1117;
+    color: #f2f2f2;
+}
+input{
+    font-size: 20px;
+}
+
+@media (max-width: 450px) {
+    .make_order {
+        padding: 1rem;
+    }
+
+    .make_order .row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .make_order .row .img,
+    .make_order .row form {
+        flex: 1 1 100%;
+    }
+
+    .make_order .row .img img {
+        display: block;
+        max-width: 50%; /* Сделать изображение в два раза меньше */
+        margin: 0 auto; /* Центрировать изображение */
+    }
+
+    .form_title {
+        font-size: 1.5rem;
+    }
+
+    #order-total, .info_order, .make_order .row form .box, textarea {
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 0.5rem 2rem;
+        font-size: 1rem;
+    }
+
+    input {
+        font-size: 1rem;
+    }
+}

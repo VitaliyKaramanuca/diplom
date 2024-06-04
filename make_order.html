@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление заказа</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style_order.css">
+</head>
+<body>
+    <section class="make_order">
+        <h2 class="form_title">Форма отправки заказа</h2>
+        <div class="row">
+            <div class="img">
+                <img src="images/make_order.png" alt="">
+            </div>
+            <form action="https://api.web3forms.com/submit" method="POST" id="checkout-form" onsubmit="submitOrder(event)">
+
+                <input type="hidden" name="access_key" value="a8af86a9-5b99-4232-bae0-b19f38d8dc34">
+
+                <span>Имя</span>
+                <input type="text" id="name" name="name" class="box" required placeholder="Введите ваше имя" autocomplete="off">
+                
+                <span>E-mail</span>
+                <input type="email" id="E-mail" name="email" class="box" required placeholder="Введите ваш E-mail" autocomplete="off">
+
+                <span>Номер телефона</span>
+                <input type="number" id="phone" name="phone" class="box" required placeholder="Введите ваш номер телефона" autocomplete="off">
+
+                <span>Адрес</span>
+                <input type="text" id="address" name="address" class="box" required placeholder="Введите ваш адрес" autocomplete="off">
+
+                <h2 class="info_order">Информация о заказе</h2>
+                <textarea id="order-details" name="order-details" rows="10" cols="50" readonly></textarea><br>
+                <div id="order-total"></div><br>
+                <input type="submit" value="Отправить заказ" class="btn" name="send"></input>
+            </form>
+        </div>
+    </section>
+    <script src="js/make_order.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
